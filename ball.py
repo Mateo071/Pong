@@ -2,12 +2,11 @@ from turtle import Turtle
 COLOR = "white"
 
 class Ball(Turtle):
-  def __init__(self, position):
+  def __init__(self):
     super().__init__()
     self.shape("circle")
     self.color(COLOR)
     self.up()
-    self.goto(position)
     self.setheading(45)
 
   def move(self):
