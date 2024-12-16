@@ -1,6 +1,7 @@
 from turtle import Screen
 from midfield import Midfield
-from paddle import User, User2, Opponent
+from paddle import Paddle
+from ball import Ball
 import time
 
 is_game_on = True
@@ -12,21 +13,19 @@ screen.title("Pong")
 screen.tracer(0)
 
 midfield = Midfield()
-
-player1_paddle = User()
-
-# player2_paddle = User2()
-
-cpu_paddle = Opponent()
+r_paddle = Paddle((400, 0))
+l_paddle = Paddle((-400, 0))
+ball = Ball()
 
 screen.listen()
-screen.onkey(player1_paddle.move_up, "w")
-screen.onkey(player1_paddle.move_down, "s")
-# screen.onkey(player2_paddle.move_up, "Up")
-# screen.onkey(player2_paddle.move_down, "Down")
+screen.onkey(r_paddle.move_up, "Up")
+screen.onkey(r_paddle.move_down, "Down")
+screen.onkey(l_paddle.move_up, "w")
+screen.onkey(l_paddle.move_down, "s")
 
 while is_game_on:
   screen.update()
+  ball.move()
   time.sleep(0.1)
 
 
