@@ -26,6 +26,10 @@ screen.onkey(l_paddle.move_down, "s")
 while is_game_on:
   screen.update()
   ball.move()
+  if ball.ycor() >= 290 or ball.ycor() <= -290:
+    ball.bounce()
+  if ball.distance(r_paddle.position()) <= 10 or ball.distance(l_paddle.position()) <= 10:
+    ball.hit_paddle()
   time.sleep(0.1)
 
 

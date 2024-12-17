@@ -7,24 +7,16 @@ class Ball(Turtle):
     self.shape("circle")
     self.color(COLOR)
     self.up()
-    self.setheading(45)
+    self.move_x = 10
+    self.move_y = 10
 
   def move(self):
-    self.forward(10)
-    if self.hit_wall():
-      prev_heading = self.heading()
-      new_heading = prev_heading + 90
-      self.setheading(new_heading)
+    new_x = self.xcor() + self.move_x
+    new_y = self.ycor() + self.move_y
+    self.goto((new_x, new_y))
 
-  def hit_wall(self):
-    x_cor = self.xcor()
-    y_cor = self.ycor()
+  def bounce(self):
+    self.move_y *= -1
 
-    if x_cor >= 440:
-      return True
-    elif x_cor <= -440:
-      return True
-    elif y_cor >= 290:
-      return True
-    elif y_cor <= -290:
-      return True
+  def hit_paddle(self):
+    self.move_x *= -1
