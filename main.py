@@ -2,6 +2,7 @@ from turtle import Screen
 from midfield import Midfield
 from paddle import Paddle
 from ball import Ball
+from scoreboard import Scoreboard
 import time
 
 is_game_on = True
@@ -13,6 +14,7 @@ screen.title("Pong")
 screen.tracer(0)
 
 midfield = Midfield()
+scoreboard = Scoreboard()
 r_paddle = Paddle((400, 0))
 l_paddle = Paddle((-400, 0))
 ball = Ball()
@@ -30,6 +32,12 @@ while is_game_on:
     ball.bounce()
   if ball.distance(r_paddle.position()) <= 40 and ball.xcor() >= 390 or ball.distance(l_paddle.position()) <= 40 and ball.xcor() <= -390:
     ball.hit_paddle()
+  if ball.xcor() > 450:
+    ball.goto(0, 0)
+    scoreboard.update_score(l_new=1, r_new=0)
+  elif ball.xcor() < -450:
+    ball.goto(0, 0)
+    scoreboard.update_score(l_new=0, r_new=1)
     
   time.sleep(0.1)
 
