@@ -30,7 +30,9 @@ while is_game_on:
   ball.move()
   if ball.ycor() >= 290 or ball.ycor() <= -290:
     ball.bounce()
-  if ball.distance(r_paddle.position()) <= 40 and ball.xcor() >= 390 or ball.distance(l_paddle.position()) <= 40 and ball.xcor() <= -390:
+  if ball.distance(r_paddle.position()) == 40 and 410 >= ball.xcor() >= 390 or ball.distance(l_paddle.position()) == 40 and -410 <= ball.xcor() <= -390:
+    ball.bounce()
+  elif ball.distance(r_paddle.position()) <= 40 and 400 >= ball.xcor() >= 390 or ball.distance(l_paddle.position()) <= 40 and -400 <= ball.xcor() <= -390:
     ball.hit_paddle()
   if ball.xcor() > 450:
     ball.reset_position()

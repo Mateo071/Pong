@@ -24,11 +24,10 @@
 
 for ball direction:
 
-0-east | 90 - north | 180 - west | 270 - south
-
-step 1. random angle between 0 and 90. (really angle between 30 and 60?)
-step 2. random 0-3. add result * 90 (for quadrant)
-step 3. a^2 + b^2 = c^2. trig algo
+step 1. random angle between 30 and 60 to avoid extremes
+step 2.
   C side = 16
   A side (x) = 16*cos (prev rand angle)
   B side (y) = 16*sin (prev rand angle)
+
+step 3. multiply x and y by either -1 or 1 at random to determine quadrant direction
