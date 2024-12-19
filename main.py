@@ -33,13 +33,13 @@ while is_game_on:
   if ball.distance(r_paddle.position()) <= 40 and ball.xcor() >= 390 or ball.distance(l_paddle.position()) <= 40 and ball.xcor() <= -390:
     ball.hit_paddle()
   if ball.xcor() > 450:
-    ball.goto(0, 0)
+    ball.reset_position()
     scoreboard.update_score(l_new=1, r_new=0)
   elif ball.xcor() < -450:
-    ball.goto(0, 0)
+    ball.reset_position()
     scoreboard.update_score(l_new=0, r_new=1)
     
-  time.sleep(0.1)
+  time.sleep(ball.move_speed)
 
 
 screen.exitonclick()
